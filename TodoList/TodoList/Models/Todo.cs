@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TodoList.Models
 {
@@ -11,8 +10,6 @@ namespace TodoList.Models
         public bool IsUrgent { get; set; } = false;
         public bool IsDone { get; set; } = false;
 
-
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime Inserted { get; set; }
 
         public Assignee Assignee { get; set; }

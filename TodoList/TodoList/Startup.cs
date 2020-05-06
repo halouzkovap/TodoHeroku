@@ -27,7 +27,7 @@ namespace TodoList
 
 
             services.AddDbContext<TodoListDbContext>(options =>
-               options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+               options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<ITodoServis, TodoServis>();
             services.AddTransient<IUserService, UserService>();

@@ -17,9 +17,7 @@ namespace TodoList.Db
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Todo>()
-                .Property(t => t.Inserted)
-                .HasDefaultValueSql("getdate()");
+
         }
 #pragma warning restore CS0114 // Member hides inherited member; missing override keyword
 
