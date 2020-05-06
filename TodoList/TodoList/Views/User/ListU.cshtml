@@ -1,0 +1,42 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>Todo for today</h1>
+<a class="btn-menu" asp-controller="Todo" asp-action="NotDone">Only not done taks</a>
+<form asp-controller="User" asp-action="List" method="get">
+    <p>
+        Title: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var td in Model.User)
+        {
+        <tr>
+            <th scope="row">@td.Id</th>
+            <td><a asp-controller="Todo" asp-action="Detail" asp-route-id="@td.Id">@td.Name</a></td>
+            <td><a asp-controller="User" asp-action="Tasks" asp-route-id="@td.Id"><i class="fas fa-tasks"></i></a></td>
+
+            <td><a asp-controller="User" asp-action="Delete" asp-route-id="@td.Id"><i class="far fa-trash-alt"></i></a></td>
+            <td><a asp-controller="User" asp-action="Edit" asp-route-id="@td.Id"><i class="far fa-edit"></i></a></td>
+        </tr>
+        }
+
+
+
+    </tbody>
+</table>
+
+<a class="btn-menu" asp-controller="Todo" asp-action="Create">Create new task</a>
